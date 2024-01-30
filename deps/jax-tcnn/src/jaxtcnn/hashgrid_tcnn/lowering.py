@@ -52,7 +52,7 @@ def hashgrid_encode_lowering_rule(
 
     return custom_call(
         call_target_name="hashgrid_encode",
-        out_types=[
+        result_types=[
             ir.RankedTensorType.get(shapes["out.encoded_coords_rm"], ir.F32Type.get()),
             ir.RankedTensorType.get(shapes["out.dy_dcoords_rm"], ir.F32Type.get()),
         ],
@@ -71,7 +71,7 @@ def hashgrid_encode_lowering_rule(
             shapes["out.encoded_coords_rm"],
             shapes["out.dy_dcoords_rm"],
         ),
-    )
+    ).results
 
 
 def hashgrid_encode_backward_lowering_rule(
@@ -113,7 +113,7 @@ def hashgrid_encode_backward_lowering_rule(
 
     return custom_call(
         call_target_name="hashgrid_encode_backward",
-        out_types=[
+        result_types=[
             ir.RankedTensorType.get(shapes["out.dL_dparams"], ir.F32Type.get()),
             ir.RankedTensorType.get(shapes["out.dL_dcoords_rm"], ir.F32Type.get()),
         ],
@@ -134,4 +134,4 @@ def hashgrid_encode_backward_lowering_rule(
             shapes["in.dL_dy_rm"],
             shapes["in.dy_dcoords_rm"],
         ),
-    )
+    ).results
