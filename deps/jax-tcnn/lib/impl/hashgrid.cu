@@ -1,13 +1,13 @@
 #include <cstdint>
 
 #include <cuda_device_runtime_api.h>
-#include <serde-helper/serde.h>
 #include <stdexcept>
 #include <tiny-cuda-nn/common.h>
 #include <tiny-cuda-nn/encoding.h>
 #include <tiny-cuda-nn/encodings/grid.h>
 #include <tiny-cuda-nn/gpu_matrix.h>
 #include <tiny-cuda-nn/gpu_memory.h>
+#include "../serde.h"
 
 #include "fmt/core.h"
 #include "tcnnutils.h"

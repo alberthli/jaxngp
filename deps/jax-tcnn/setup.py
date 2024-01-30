@@ -51,7 +51,7 @@ class CMakeBuildExt(build_ext):
             ),
             "-DCMAKE_PREFIX_PATH={}".format(pybind11.get_cmake_dir()),
             "-G Ninja",
-        ] + os.environ["cmakeFlags"].split()
+        ]
         os.makedirs(self.build_temp, exist_ok=True)
         subprocess.check_call(
             ["cmake", HERE] + cmake_args, cwd=self.build_temp

@@ -3,7 +3,7 @@
 #include <pybind11/pybind11.h>
 #include <stdexcept>
 #include <fmt/format.h>
-#include <serde-helper/serde.h>
+#include "serde.h"
 
 #include "impl/tcnnutils.h"
 

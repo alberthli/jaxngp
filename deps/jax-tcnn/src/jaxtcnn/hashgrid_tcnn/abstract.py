@@ -64,17 +64,17 @@ def hashgrid_encode_abstract(
     }
 
     return (
-        jax.ShapedArray(shape=out_shapes["encoded_coords_rm"], dtype=jnp.float32),
-        jax.ShapedArray(shape=out_shapes["dy_dcoords_rm"], dtype=jnp.float32),
+        jax.core.ShapedArray(shape=out_shapes["encoded_coords_rm"], dtype=jnp.float32),
+        jax.core.ShapedArray(shape=out_shapes["dy_dcoords_rm"], dtype=jnp.float32),
     )
 
 
 def hashgrid_encode_backward_abstract(
-    offset_table_data: jax.ShapedArray,
-    coords_rm: jax.ShapedArray,
-    params: jax.ShapedArray,  # only for determining shape of dL_dparams
-    dL_dy_rm: jax.ShapedArray,
-    dy_dcoords_rm: jax.ShapedArray,
+    offset_table_data: jax.core.ShapedArray,
+    coords_rm: jax.core.ShapedArray,
+    params: jax.core.ShapedArray,  # only for determining shape of dL_dparams
+    dL_dy_rm: jax.core.ShapedArray,
+    dy_dcoords_rm: jax.core.ShapedArray,
 
     # static args
     L: int,
@@ -133,6 +133,6 @@ def hashgrid_encode_backward_abstract(
     }
 
     return (
-        jax.ShapedArray(shape=out_shapes["dL_dparams"], dtype=jnp.float32),
-        jax.ShapedArray(shape=out_shapes["dL_dcoords_rm"], dtype=jnp.float32),
+        jax.core.ShapedArray(shape=out_shapes["dL_dparams"], dtype=jnp.float32),
+        jax.core.ShapedArray(shape=out_shapes["dL_dcoords_rm"], dtype=jnp.float32),
     )

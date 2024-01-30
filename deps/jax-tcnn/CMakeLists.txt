@@ -6,6 +6,8 @@ message(STATUS "Enabled CUDA architectures: ${CMAKE_CUDA_ARCHITECTURES}")
 
 message(STATUS "Using CMake version " ${CMAKE_VERSION})
 
+set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} --extended-lambda")
+
 find_package(Python COMPONENTS Interpreter Development REQUIRED)
 find_package(pybind11 CONFIG REQUIRED)
 find_package(fmt REQUIRED)
@@ -20,8 +22,8 @@ pybind11_add_module(
 )
 
 # e.g. `cmake -DTCNN_MIN_GPU_ARCH=61`
-message(STATUS "TCNN_MIN_GPU_ARCH=${TCNN_MIN_GPU_ARCH}")
-target_compile_definitions(tcnnutils PUBLIC -DTCNN_MIN_GPU_ARCH=${TCNN_MIN_GPU_ARCH})
+message(STATUS "TCNN_MIN_GPU_ARCH=35")
+target_compile_definitions(tcnnutils PUBLIC -DTCNN_MIN_GPU_ARCH=35)
 
 target_link_libraries(tcnnutils PRIVATE tiny-cuda-nn fmt::fmt)
 
